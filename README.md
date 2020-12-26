@@ -6,10 +6,11 @@ The purpose of this document is to prepare a step by step guide for Ajay. The al
 
 ## Introduction
 The document contains the following:
-•	Datasets Musk and Madelon.
-•	Classifiers: NB, KNN, LDS, RT.
-•	Our Approach: Binary Jaya algorithm with AUC score as a function.
-•	Results
+
+- Datasets Musk and Madelon.
+- Classifiers: NB, KNN, LDS, RT.
+- Our Approach: Binary Jaya algorithm with AUC score as a function.
+- Results
 
 ## Dataset
 Two datasets are used for classification purposes. Both datasets are available at https://archive.ics.uci.edu/ml/datasets    
@@ -20,15 +21,23 @@ Two datasets are used for classification purposes. Both datasets are available a
 
 
 Table 1: Musk Dataset Statistics
+
 Content	                            Training Dataset	Test Dataset
+
 Number of Features  [F_mu]	             168	          168
+
 Number of Measurements [M_mu^Tr]	       6598	
+
 Number of Measurements [M_mu^Te]		                    476
 
 Table 2: Madelon Dataset Statistics
+
 Content	                            Training Dataset	Test Dataset
+
 Number of Features [F_ma]	               500	          500
+
 Number of Measurements [M_ma^Tr]	       2000	
+
 Number of Measurements [M_ma^Te]		                    1800
 
 ## Algorithm Rationale
