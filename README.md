@@ -2,7 +2,7 @@
 ## Objective function: Area Under the Curve (AUC) Score
 
 ## ABSTRACT
-The purpose of this document is to prepare a step by step guide for Ajay. The algorithm includes binary Jaya with the Area Under the Curve (AUC) score as a feature function. These algorithms are used to optimized the feature selection process and improve the overall accuracy of classification results using Naive Bayes (NB), K-Nearest Neighbour (KNN), LDA, and Regression Tree (RT). 
+The purpose of this document is to prepare a step by step guide for Ajay. The algorithm includes binary Jaya with the Area Under the Curve (AUC) score as a feature function. These algorithms are used to optimized the feature selection process and improve the overall accuracy of classification results up to 6- 10 % using Naive Bayes (NB), K-Nearest Neighbour (KNN), LDA, and Regression Tree (RT). 
 
 ## Introduction
 The document contains the following:
@@ -50,3 +50,12 @@ This algorithm's ultimate purpose is to select the best features without comprom
 
 -	S-Function (Sigmoid Function): S-function values are finalized using exhaustive search. 
 The result table above shows a definite improvement in overall classifiers performance with the above parameters and AUC score as an objective function compared to the classifier's performance with Error rate.
+
+## PART - 2 
+### S-Fucntion
+5 differnet s-functions (sigmoid fucntions) added. S- function graphical representation is added as well in a form of an initial report. 
+
+### Binary conversion of JAYA algorithm. 
+Instead of comparing binary conversion by comparing its value with a random number, now, it will be done using a combinations of one or two S-functions. 
+
+
