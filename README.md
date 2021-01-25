@@ -92,7 +92,11 @@ By the end of part-1 and part -2 of the project, the following hyper-parameters 
 #### Code files 
 
 1- Test_Cases.py : few test cases are created with various combinations of hyper-parameters. 
+
 2- Classifiers.py : have all the classifiers
+
 3- project_part_1.py  : jaya algorithms 
+
 4- project_part_2.py : hyper-parameters functions 
+
 5- algorithm.py : execute this file to run the complete code. 
