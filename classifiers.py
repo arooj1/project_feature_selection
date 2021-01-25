@@ -17,7 +17,7 @@ def data_classification(train_x, train_y, test_x = None ,test_y = None):
 
     classifiers = [
         GaussianNB(),
-        DecisionTreeRegressor(),
+        DecisionTreeRegressor(criterion='mae'),
         KNeighborsClassifier(n_neighbors=10),
         LinearDiscriminantAnalysis()
     ]
@@ -44,10 +44,10 @@ def data_classification(train_x, train_y, test_x = None ,test_y = None):
                 'Training_Score' : score_ytrain,
                  'Test_Score' : score_ytest
                 }
-        
+        cl_report = classification_report(np.ravel(test_y), pred_ytest, digits = 4)
         #print("classifier %s, train score %.5f \n" %(name,score_ytrain))
         #print("classifier %s, test score %.5f \n" %(name,score_ytest))
-        print("classifier %s " %(name), classification_report(np.ravel(test_y), pred_ytest, digits = 4))
+        print("classifier %s " %(name), cl_report)
         #print("probabilty of test", probs)
-        model_return[name] = pred_ytrain
+        model_return[name] = cl_report #pred_ytrain
     return model_return

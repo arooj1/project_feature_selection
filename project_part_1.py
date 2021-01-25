@@ -13,11 +13,12 @@ from sklearn import svm
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.tree import DecisionTreeRegressor
+import project_part_2 as p2
 
 warnings.filterwarnings('ignore')
 
 class feature_optimization:
-    def __init__(self, trainX, trainY, testX, testY, population, obj_function):
+    def __init__(self, trainX, trainY, testX, testY, population, obj_function, s_function, binary_function):
         self.trainX = trainX
         self.trainY = trainY
         self.testX  = testX
@@ -32,6 +33,8 @@ class feature_optimization:
         else:
             print('please select the correct fx function-- ER [Error rate] or AUC [Area under the curve]')
         
+        self.s_function = p2.sigmoid_function(s_function)
+        self.binary_function = p2.jaya_binary(binary_function)
         self.dsp_binary_data = generate_binary_dataset(self.P, self.objective_function)
         
         
@@ -76,16 +79,19 @@ class feature_optimization:
         INPUT : output of Jaya algorithm line 36
         OUTPUT: binary value of x_new
         '''
-        #probability_jaya_x  = 1/(1 + np.exp(-2 * X_new) - 0.25)   # OUR PROPOSED ONE 
-        probability_jaya_x  = 1/(1 + np.exp(-10 * X_new) - 0.5)    # PAPER FUNCTION
-        #print('probability_jaya_x ', probability_jaya_x)
-        random_r =  np.round(np.random.random(1),2)
+        #probability_jaya_x  = 1/(1 + np.exp(-2 * X_new) - 0.25)   # OUR PROPOSED ONE
+        
+        probability_jaya_x = (self.s_function(X_new))   # OUR PROPOSED ONE 
+        
         prob = []
         for p in probability_jaya_x:
-            if p > random_r:
-                prob.append(1.0)
-            else:
-                prob.append(0.0)
+            prob.append(self.binary_function(p))
+            #if p > random_r:
+                #prob.append(1.0)
+            #else:
+            #    prob.append(0.0)
+        
+           
         return prob    
 
     def jaya_ER(self,x):

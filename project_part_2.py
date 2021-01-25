@@ -6,54 +6,86 @@ Created on Sat Dec 26 00:59:58 2020
 """
 
 import numpy as np
+import random
 
 class sigmoid_function:
-    def __init__(self, x, function):
+    def __init__(self,function):
+        
         functions = {'logistic_function':self.logistic_function,
                      'hyperbolic_function': self.hyperbolic_function,
                      'arctangent_function':self.arctangent_function,
                      'gen_logistic_function':self.gen_logistic_function,
                      'algebraic_function':self.algebraic_function,
-                     'gudermannian_function': self.gudermannian_function}
+                     'gudermannian_function': self.gudermannian_function,
+                     'default': self.default_function}
         
         functions.keys()
-        self.x = x
+        #self.x = x
         #self.function_to_load = self.logistic_function
         for f in functions.keys():
-            print(f)
+            
             if(function ==f):
                 self.function_to_load = functions[f]
+                print(f)
                 break;
             else:
-                print('function not available')
+                print('')
              
-    def __call__(self):
-        print(self.function_to_load())
-        return (self.function_to_load())
+    def __call__(self,x):
+        #print(self.function_to_load())
+        return (self.function_to_load(x))
     
-    def logistic_function(self):
-        return 1/ (1+np.exp(-self.x))
+    def logistic_function(self,x):
+        return 1/ (1+np.exp(x))
             
-    def hyperbolic_function(self):
+    def hyperbolic_function(self,x):
         '''
         In term of exponent and reaches infinity 
         '''
-        return np.tanh(self.x)
+        return np.tanh(x)
         
     
-    def arctangent_function(self):
-        return np.arctan(self.x)
+    def arctangent_function(self,x):
+        return np.arctan(x)
     
-    def gen_logistic_function(self):
-        return (np.power(1+np.exp(self.x),-1))
+    def gen_logistic_function(self,x):
+        return (np.power(1+np.exp(x),-2))
         
-    def algebraic_function(self):
-        f_x = (self.x/np.sqrt(1+np.power(x,2)))
+    def algebraic_function(self,x):
+        f_x = (x/np.sqrt(1+np.power(x,2)))
         return f_x
     
-    def gudermannian_function(self):
-        return 2 * np.arctan(np.tanh(self.x/2))
+    def gudermannian_function(self,x):
+        return 2 * np.arctan(np.tanh(x/2))
     
+    def default_function(self,x):
+        return 1/(1 + np.exp(-2 * x) - 0.25)
+    
+class jaya_binary:
+    def __init__(self,method):
+        if method == 'random_r':
+            self.method = self.random_r
+        elif method == 'default_r':
+            self.method = self.default_r
+
+    def __call__(self, p):
+        #print(p)
+        return self.method(p)
+    
+    
+    def random_r(self,p):
+        r = random.uniform(0, 1.0)
+        if p > r:
+            return 1.0
+        else:
+            return 0.0
+        
+    def default_r(self,p):
+        if p > 0.5:
+            return 1.0
+        else:
+            return 0.0
+            
     
 '''
 x = 1
