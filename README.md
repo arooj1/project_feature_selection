@@ -54,8 +54,45 @@ The result table above shows a definite improvement in overall classifiers perfo
 ## PART - 2 
 ### S-Fucntion
 5 differnet s-functions (sigmoid fucntions) added. S- function graphical representation is added as well in a form of an initial report. 
+A variety of S-functions are used as one of the parameters. Please refer to `s_function_analysis.pdf` to see the functional graph of the selective sigmoid(s) functions. 
+
 
 ### Binary conversion of JAYA algorithm. 
 Instead of comparing binary conversion by comparing its value with a random number, now, it will be done using a combinations of one or two S-functions. 
+In the project part one, `random_r` binary conversion of JAYA algorithm is used. According to this function, if the output of JAYA function is greater than the random float number (between 0 - 1), it will be **1** otherwise **0**. 
+
+As we have proposed f(x) function based on AUC score. The higher AUC score refers to better classification. Based on this logic, the binary conversion is proposed as if the vlaue of JAYA algorithm is higher than 0.5 then it is 1, otherwise 0 as compared to random float point. 
 
 
+### MODEL EXECUTION
+#### Hyper-parameters
+
+By the end of part-1 and part -2 of the project, the following hyper-parameters are created:
+
+1- S Fucntions 
+  - default : proposed in part-1 of the project
+  - logistic function
+  - arctangnet 
+  - hyperbolic_function
+  - gen_logistic_function
+  - algebraic_function
+  - gudermannian_function
+  
+2- Objective Functions
+  - Error Function 
+  - AUC score based function
+  
+3 - Binary Conversion Functions
+  - random_r
+  - default_r
+  
+4 - Population size (p)
+
+
+#### Code files 
+
+1- Test_Cases.py : few test cases are created with various combinations of hyper-parameters. 
+2- Classifiers.py : have all the classifiers
+3- project_part_1.py  : jaya algorithms 
+4- project_part_2.py : hyper-parameters functions 
+5- algorithm.py : execute this file to run the complete code. 
